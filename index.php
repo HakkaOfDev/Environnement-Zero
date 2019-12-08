@@ -1,5 +1,8 @@
 <?php
-session_start();
+require('assets/includes/bootstrap.php');
+$auth = App::getAuth();
+$db = App::getDatabase();
+$auth->reconnectFromCookie($db);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,15 +37,32 @@ session_start();
 
 <body>
 
-      <?php include('assets/includes/header.php'); ?>
+    <?php include('assets/includes/header.php'); ?>
 
-            <div class="container-fluid">
-                <h1 class="mt-4">Simple Sidebar</h1>
-                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8"></div>
+            <div class="col-lg-4">
+                <div class="home-box">
+                    <div class="home-title">
+                        <p>Dernières nouveautés</p>
+                    </div>
+                    <hr>
+                    <?php foreach ($db->query('SELECT * FROM news ORDER BY id DESC')->fetchAll() as $new) : ?>
+                        <div class="home-box">
+                            <div class="home-title text-center">
+                                <p> <?= $new->news_title; ?> </p>
+                            </div>
+                            <hr>
+                            <p><?= $new->news_content; ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
+    </div>
+    </div>
+    <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->

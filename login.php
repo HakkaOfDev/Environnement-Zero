@@ -6,7 +6,7 @@ $auth->reconnectFromCookie($db);
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $student = $auth->login($db, $_POST['email'], $_POST['password'], isset($_POST['remember']));
-    if($student){
+    if ($student) {
         $auth->getSession()->sendFlash('success', "Authentification réussie");
         App::redirect('profil.php');
     } else {
@@ -51,22 +51,45 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <?php include('assets/includes/header.php'); ?>
 
     <div class="container-fluid">
-        <div class="home-box">
-            <div class="home-title">Connection à l'environnement</div>
-            <hr>
-            <form method="POST" action="">
-                <input type="text" name="name" class="form-control" placeholder="Nom" />
-                <br>
-                <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
-                <br>
-                <div class="form-control">
-                    <label>
-                        <input type="checkbox" name="remember" value="1" />Se souvenir de moi
-                    </label>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="home-box">
+                    <div class="home-title">Connection à l'environnement</div>
+                    <hr>
+                    <form method="POST" action="">
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-at text-primary"></i></div>
+                                </div>
+                                <input type="text" name="email" class="form-control" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
+                                </div>
+                                <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
+                            </div>
+                        </div>
+                        <label>
+                            <input type="checkbox" name="remember" value="1" /> Se souvenir de moi
+                        </label>
+                        <br>
+                        <input type="submit" value="S'authentifier" class="btn btn-primary btn-block rounded-0 py-2">
+                    </form>
                 </div>
-                <button type="submit" name"submit" class="btn btn-primary">Se connecter</button>
-
-            </form>
+            </div>
+            <div class="col-lg-4">
+                <div class="home-box">
+                    <div class="home-title">
+                        <p>Informations</p>
+                    </div>
+                    <hr>
+                    <p>Nous tenons à préciser qu'afin d'être inscrit chez nous, vous devez faire partis <b>intégrante</b> d'un établissement scolaire qui nous est partenaire.</p>
+                </div>
+            </div>
         </div>
     </div>
     </div>

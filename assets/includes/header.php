@@ -1,16 +1,31 @@
 <?php
+require_once('assets/includes/bootstrap.php');
+
+$auth = App::getAuth();
+$student = $auth->getStudent();
 ?>
 
 <div class="d-flex" id="wrapper">
 
     <div class="bg-dark border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading custom-brand">Environnement Zérø</div>
+        <a href="index.php">
+            <div class="sidebar-heading custom-brand">Environnement Zérø</div>
+        </a>
         <div class="list-group list-group-flush">
-            <div class="dropdown-divider"></div>
-            <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex"><small><i class="fab fa-discourse"></i> Discussions</small></a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-muted"><img src="assets/img/test-avatar.png" class="img-circle" height="30px" width="30px"> FREIRE Corentin</a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="list-group-item list-group-item-action bg-dark">Shortcuts</a>
+            <?php if ($student != null) : ?>
+                <div class="dropdown-divider"></div>
+                <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex"><small><i class="fab fa-discourse"></i> Discussions</small></a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-muted"><img src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE Corentin</a>
+                <div class="dropdown-divider"></div>
+            <?php endif; ?>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Support</a>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle list-group-item list-group-item-action bg-dark">Test</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a class="sidebar-separator-title text-muted align-items-center d-flex" href="#">Home 1</a>
+                </li>
+            </ul>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Contact</a>
         </div>
     </div>
 
@@ -25,11 +40,11 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <?php if (isset($_SESSION['auth'])) : ?>
+                    <?php if ($student != null) : ?>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= $_SESSION['auth']->name; ?> <?= $_SESSION['auth']->firstname; ?>
+                                <large class="text-uppercase"><?= $student->name; ?></large> <?= $student->firstname; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="profil.php">Paramètres</a>

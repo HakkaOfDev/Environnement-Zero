@@ -22,7 +22,7 @@ class Auth
 
     public function restrict()
     {
-        if ($this->session->read('auth')) {
+        if (!$this->session->read('auth')) {
             $this->session->sendFlash('danger', $this->options['restriction_msg']);
             header('Location: login.php');
             exit();
@@ -54,7 +54,7 @@ class Auth
                 if ($expected == $remember_token) {
                     $this->connect($student);
                     setcookie('remember', $remember_token, time() + 60 * 60 * 24 * 7);
-                    header('Location: profil.php');
+                    header('Location: index.php');
                 } else {
                     setcookie('remember', null, -1);
                 }
@@ -70,7 +70,7 @@ class Auth
         if (password_verify($password, $student->password)) {
             $this->connect($student);
             if ($remember) {
-                $remember_token = String::random(250);
+                $remember_token = StringUtils::random(250);
                 $db->query('UPDATE students SET remember_token = ? WHERE id = ?', [$remember_token, $student->id]);
                 setcookie('remember', $student->id . '==' . $remember_token . sha1($student->id . 'ratonlaveurs'), time() + 60 * 60 * 24 * 7);
             }
