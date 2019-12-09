@@ -12,20 +12,20 @@ $student = $auth->getStudent();
             <div class="sidebar-heading custom-brand">Environnement Zérø</div>
         </a>
         <div class="list-group list-group-flush">
-            <?php if ($student != null) : ?>
+            <?php if ($student != false) : ?>
                 <div class="dropdown-divider"></div>
-                <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex"><small><i class="fab fa-discourse"></i> Discussions</small></a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-muted"><img src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE Corentin</a>
+                <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex section-title"><div class="p-2"></div><small><i class="fas fa-search"></i> Discussions</small></a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title"><img src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE Corentin</a>
+                <div class="dropdown-divider"></div>
+                <a href="#boxit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle list-group-item list-group-item-action bg-dark text-white section-title">Box'it</a>
+                <div class="collapse" id="boxit">
+                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TS1</small></a>
+                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TS2</small></a>
+                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TES</small></a>
+                </div>
                 <div class="dropdown-divider"></div>
             <?php endif; ?>
-            <a href="#" class="list-group-item list-group-item-action bg-dark">Support</a>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle list-group-item list-group-item-action bg-dark">Test</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a class="sidebar-separator-title text-muted align-items-center d-flex" href="#">Home 1</a>
-                </li>
-            </ul>
-            <a href="#" class="list-group-item list-group-item-action bg-dark">Contact</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title">Support</a>
         </div>
     </div>
 
@@ -40,7 +40,7 @@ $student = $auth->getStudent();
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <?php if ($student != null) : ?>
+                    <?php if ($student != false) : ?>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

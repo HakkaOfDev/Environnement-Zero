@@ -6,12 +6,12 @@ $auth->restrict();
 $db = App::getDatabase();
 if (!empty($_POST)) {
     $errors = array();
-    if (empty($_POST['password_actual']) || !password_verify($_POST['password_actual'], $_SESSION['auth']->password)) {
+    if (empty($_POST['password_actual']) || !password_verify($_POST['password_actual'], $auth->getStudent()->password)) {
         $errors['password_actual'] = 'Votre mot de passe actuel est erroné';
     }
 
     if (empty($_POST['password']) || empty($_POST['password_confirm'])) {
-        $errors['passwordempty'] = 'Veuillez remplir les champs demandés.';
+        $errors['passwordempty'] = 'Veuillez remplir les champs demandés';
     }
 
     if (empty($_POST['password']) || !($_POST['password'] == $_POST['password_confirm'])) {
@@ -21,7 +21,6 @@ if (!empty($_POST)) {
     if (empty($errors)) {
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $db->query('UPDATE students SET password = ? WHERE id = ?', [$password, $auth->getStudent()->id]);
-        $req->execute([$password, $_SESSION['auth']->id]);
         $auth->getSession()->sendFlash('success', 'Votre mot de passe a été correctement réinitialiser');
     }
 }
@@ -54,7 +53,7 @@ if (!empty($_POST)) {
 
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css?3" rel="stylesheet">
 
 </head>
 

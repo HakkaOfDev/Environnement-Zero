@@ -7,7 +7,7 @@ class Auth
     private $options = [
         'restriction_msg' => "Vous n'avez pas le droit d'accéder à cette page"
     ];
-
+    
     public function __construct($session, $options = [])
     {
         $this->options = array_merge($this->options, $options);
