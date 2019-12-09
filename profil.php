@@ -69,15 +69,7 @@ if (!empty($_POST)) {
                         <p>Bienvenue dans l'Environnement Zérø</p>
                     </div>
                     <hr>
-                    <?php foreach ($db->query('SELECT * FROM news ORDER BY id DESC')->fetchAll() as $new): ?>
-                        <div class="home-box">
-                            <div class="home-title">
-                                <p> <?= $new->news_title; ?> </p>
-                            </div>
-                            <hr>
-                            <p><?= $new->news_content; ?></p>
-                        </div>
-                    <?php endforeach; ?>
+                    <p>Je test des choses</p>
                 </div>
             </div>
             <div class="col-lg-4">
