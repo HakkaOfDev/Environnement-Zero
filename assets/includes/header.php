@@ -44,7 +44,7 @@ $student = $auth->getStudent();
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <large class="text-uppercase"><?= $student->name; ?></large> <?= $student->firstname; ?>
+                                <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="rounded-circle" height="30px" width="30px"><large class="text-uppercase">  <?= $student->name; ?></large> <?= $student->firstname; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="profil.php">Paramètres</a>

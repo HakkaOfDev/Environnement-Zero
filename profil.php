@@ -122,6 +122,36 @@ if (!empty($_POST)) {
                 </div>
             </div>
         </div>
+        <div class="row">
+
+            <div class="col-lg-8"></div>
+
+            <div class="col-lg-4">
+                <div class="home-box">
+                    <div class="home-title">
+                        <p>Changer son avatar ?</p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="img-thumbnail">
+                    </div>
+                    <br>
+                    <form action="avatarchange.php" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-file-image"></i></div>
+                                </div>
+                                <input type="file" name="new_avatar" class="form-control"/>
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" value="Mettre à jour" class="btn btn-primary btn-block rounded-0 py-2">
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
     </div>
     <!-- /#page-content-wrapper -->
