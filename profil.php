@@ -64,16 +64,40 @@ if (!empty($_POST)) {
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-7">
             <div class="home-box">
                 <div class="home-title">
-                    <p>Bienvenue dans l'Environnement Zérø</p>
+                    <p>Vos informations</p>
                 </div>
-                <hr>
-                <p>Je test des choses</p>
+                <div class=" col-md-6 col-lg-6 hidden-xs hidden-sm">
+                    <table class="table table-user-information">
+                        <tbody>
+                        <tr>
+                            <td>Nom de famille</td>
+                            <td><?= $auth->getStudent()->name; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Prénom</td>
+                            <td><?= $auth->getStudent()->firstname; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td><?= $auth->getStudent()->status; ?></td>
+                        </tr>
+                        <?php if ($auth->getStudent()->grade != null): ?>
+                            <tr>
+                                <td>Classe</td>
+                                <td><?= $auth->getStudent()->grade; ?></td>
+                            </tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
             <?php if (!empty($errors)) : ?>
                 <div class="alert alert-danger">
                     <p>Remplissez le formulaire d'inscription correctement:</p>
@@ -128,9 +152,9 @@ if (!empty($_POST)) {
     </div>
     <div class="row">
 
-        <div class="col-lg-8"></div>
+        <div class="col-lg-9"></div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="home-box">
                 <div class="home-title">
                     <p>Changer son avatar ?</p>

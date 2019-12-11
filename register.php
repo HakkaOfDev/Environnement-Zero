@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     $validator->isPasswordValidate('password', "Renseignez un mot de passe valide");
 
     if ($validator->isStudentValidate()) {
-        App::getAuth()->register($db, $_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['password']);
+        App::getAuth()->register($db, $_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['password'], $_POST['status'], $_POST['grade']);
         Session::getInstance()->sendFlash('success', "L'élève à été inscrit avec succès");
     } else {
         $errors = $validator->getErrors();
@@ -71,23 +71,79 @@ if (!empty($_POST)) {
         </div>
     <?php endif; ?>
     <div class="home-box">
-        <div class="home-title">Connection à l'environnement</div>
+        <div class="home-title">Inscription à l'environnement</div>
         <hr>
         <form method="POST" action="">
-            <input type="text" name="name" class="form-control" placeholder="Nom de famille"/>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-signature text-primary"></i></div>
+                    </div>
+                    <input type="text" name="name" class="form-control" placeholder="Nom de famille"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-signature text-primary"></i></div>
+                    </div>
+                    <input type="text" name="firstname" class="form-control" placeholder="Prénom"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-graduation-cap text-primary"></i></div>
+                    </div>
+                    <select class="form-control" name="status">
+                        <option selected disabled>Profession</option>
+                        <option>Elève</option>
+                        <option>Professeur</option>
+                        <option>Directeur</option>
+                        <option>Administrateur</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-copyright text-primary"></i></div>
+                    </div>
+                    <select class="form-control" name="grade">
+                        <option selected disabled>Classe</option>
+                        <option>TS1</option>
+                        <option>TS2</option>
+                        <option>TES</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-at text-primary"></i></div>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="Email"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
+                    </div>
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
+                    </div>
+                    <input type="password" name="password_confirm" class="form-control"
+                           placeholder="Confirmez le mot de passe"/>
+                </div>
+            </div>
             <br>
-            <input type="text" name="firstname" class="form-control" placeholder="Prénom"/>
-            <br>
-            <input type="text" name="email" class="form-control" placeholder="Email"/>
-            <br>
-            <input type="password" name="password" class="form-control" placeholder="Mot de passe"/>
-            <br>
-            <input type="password" name="password-confirm" class="form-control"
-                   placeholder="Confirmez le mot de passe"/>
-            <br>
-            <button type="submit" name
-            "submit" class="btn btn-primary">Inscire l'élève</button>
-
+            <input type="submit" value="Inscrire" class="btn btn-primary btn-block rounded-0 py-2">
         </form>
     </div>
 </div>

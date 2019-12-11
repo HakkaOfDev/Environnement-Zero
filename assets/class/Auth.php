@@ -8,7 +8,6 @@
 
 class Auth
 {
-
     private $session;
     private $options = [
         'restriction_msg' => "Vous n'avez pas le droit d'accéder à cette page"
@@ -35,10 +34,10 @@ class Auth
      * @param $email
      * @param $password
      */
-    public function register($db, $name, $firstname, $email, $password)
+    public function register($db, $name, $firstname, $email, $password, $status, $grade)
     {
         $bpassword = password_hash($password, PASSWORD_BCRYPT);
-        $db->query('INSERT INTO students (email, password, name, firstname) VALUES (?,?,?,?)', [$email, $bpassword, $name, $firstname]);
+        $db->query('INSERT INTO students (email, password, name, firstname, avatar, status, grade) VALUES (?,?,?,?,?,?,?)', [$email, $bpassword, $name, $firstname, 'default.png', $status, $grade]);
     }
 
     /**

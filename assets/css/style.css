@@ -95,3 +95,18 @@ body {
 .section-subcontent {
     background-color: #6c757d;
 }
+
+/* Profil */
+
+.table-student-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-student-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-student-information > tbody > tr > td {
+    border-top: 0;
+}
