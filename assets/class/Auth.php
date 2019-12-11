@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Class Auth
+ *
+ * This class allows to manage the authentication from student.
+ */
+
 class Auth
 {
 
@@ -7,19 +13,37 @@ class Auth
     private $options = [
         'restriction_msg' => "Vous n'avez pas le droit d'accéder à cette page"
     ];
-    
+
+    /**
+     * Auth constructor.
+     *
+     * @param $session
+     * @param array $options
+     */
     public function __construct($session, $options = [])
     {
         $this->options = array_merge($this->options, $options);
         $this->session = $session;
     }
 
+    /**
+     * This function register the new student.
+     *
+     * @param $db
+     * @param $name
+     * @param $firstname
+     * @param $email
+     * @param $password
+     */
     public function register($db, $name, $firstname, $email, $password)
     {
         $bpassword = password_hash($password, PASSWORD_BCRYPT);
         $db->query('INSERT INTO students (email, password, name, firstname) VALUES (?,?,?,?)', [$email, $bpassword, $name, $firstname]);
     }
 
+    /**
+     * This function check if the student is logged and restrict different pages of website (example: profil.php)
+     */
     public function restrict()
     {
         if (!$this->session->read('auth')) {
@@ -29,19 +53,11 @@ class Auth
         }
     }
 
-    public function getStudent()
-    {
-        if (!$this->session->read('auth')) {
-            return false;
-        }
-        return $this->session->read('auth');
-    }
-
-    public function connect($student)
-    {
-        $this->session->write('auth', $student);
-    }
-
+    /**
+     * This function reconnect the student from a cookie if the student checked the "remember me" box.
+     *
+     * @param $db
+     */
     public function reconnectFromCookie($db)
     {
         if (isset($_COOKIE['remember']) && !$this->getStudent()) {
@@ -64,6 +80,38 @@ class Auth
         }
     }
 
+    /**
+     * This funciton return $_SESSSION of student or if it does not exist, false.
+     *
+     * @return bool
+     */
+    public function getStudent()
+    {
+        if (!$this->session->read('auth')) {
+            return false;
+        }
+        return $this->session->read('auth');
+    }
+
+    /**
+     * She puts the $student variable in the $_SESSION['auth'] (variable de connection)
+     *
+     * @param $student
+     */
+    public function connect($student)
+    {
+        $this->session->write('auth', $student);
+    }
+
+    /**
+     * This function logs the student.
+     *
+     * @param $db
+     * @param $email
+     * @param $password
+     * @param bool $remember
+     * @return bool
+     */
     public function login($db, $email, $password, $remember = false)
     {
         $student = $db->query('SELECT * FROM students WHERE email = ?', [$email])->fetch();
@@ -80,12 +128,20 @@ class Auth
         }
     }
 
+    /**
+     * This function logout the student by removing the $_SESSION['auth']
+     */
     public function logout()
-    { 
+    {
         setcookie('remember', NULL, -1);
         $this->session->delete('auth');
     }
 
+    /**
+     * Return the Session class
+     *
+     * @return mixed
+     */
     public function getSession()
     {
         return $this->session;

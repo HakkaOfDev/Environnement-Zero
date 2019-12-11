@@ -14,14 +14,28 @@ $student = $auth->getStudent();
         <div class="list-group list-group-flush">
             <?php if ($student != false) : ?>
                 <div class="dropdown-divider"></div>
-                <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex section-title"><div class="p-2"></div><small><i class="fas fa-search"></i> Discussions</small></a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title"><img src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE Corentin</a>
+                <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex section-title">
+                    <div class="p-2"></div>
+                    <small><i class="fas fa-search"></i> Discussions</small></a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title"><img
+                            src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE
+                    Corentin</a>
                 <div class="dropdown-divider"></div>
-                <a href="#boxit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle list-group-item list-group-item-action bg-dark text-white section-title">Box'it</a>
+                <a href="#boxit" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle list-group-item list-group-item-action bg-dark text-white section-title">Box'it</a>
                 <div class="collapse" id="boxit">
-                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TS1</small></a>
-                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TS2</small></a>
-                    <a href="#" class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent"><div class="p-3"></div><small><i class="fas fa-angle-double-right"></i> TES</small></a>
+                    <a href="#"
+                       class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
+                        <div class="p-3"></div>
+                        <small><i class="fas fa-angle-double-right"></i> TS1</small></a>
+                    <a href="#"
+                       class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
+                        <div class="p-3"></div>
+                        <small><i class="fas fa-angle-double-right"></i> TS2</small></a>
+                    <a href="#"
+                       class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
+                        <div class="p-3"></div>
+                        <small><i class="fas fa-angle-double-right"></i> TES</small></a>
                 </div>
                 <div class="dropdown-divider"></div>
             <?php endif; ?>
@@ -34,7 +48,8 @@ $student = $auth->getStudent();
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
             <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars"></i></button>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -43,8 +58,11 @@ $student = $auth->getStudent();
                     <?php if ($student != false) : ?>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="rounded-circle" height="30px" width="30px"><large class="text-uppercase">  <?= $student->name; ?></large> <?= $student->firstname; ?>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="rounded-circle"
+                                     height="30px" width="30px">
+                                <large class="text-uppercase">  <?= $student->name; ?></large> <?= $student->firstname; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="profil.php">Paramètres</a>
@@ -76,6 +94,7 @@ $student = $auth->getStudent();
                 </ul>
             </div>
         </nav>
+        <!-- Flashes Messages -->
         <div class="container-fluid">
             <?php if (Session::getInstance()->hasFlashed()) : ?>
                 <?php foreach (Session::getInstance()->getFlashes() as $type => $message) : ?>

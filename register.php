@@ -31,7 +31,8 @@ if (!empty($_POST)) {
 
     <title>Environnement Zéro</title>
 
-    <meta name="description" content="Environnement Zéro @2k20" <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
+    <meta name="description" content="Environnement Zéro @2k20"
+    <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Environnement Zéro">
     <meta property="og:description" content="Environnement Zéro @2k20">
@@ -54,57 +55,59 @@ if (!empty($_POST)) {
 
 <body>
 
-    <?php include('assets/includes/header.php'); ?>
+<?php include('assets/includes/header.php'); ?>
 
-    <div class="container-fluid">
-        <?php if (!empty($errors)) : ?>
-            <div class="alert alert-danger">
-                <p>Remplissez le formulaire d'inscription correctement:</p>
-                <ul>
-                    <?php foreach ($errors as $error) : ?>
-                        <li>
-                            <?= $error; ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
-        <div class="home-box">
-            <div class="home-title">Connection à l'environnement</div>
-            <hr>
-            <form method="POST" action="">
-                <input type="text" name="name" class="form-control" placeholder="Nom de famille" />
-                <br>
-                <input type="text" name="firstname" class="form-control" placeholder="Prénom" />
-                <br>
-                <input type="text" name="email" class="form-control" placeholder="Email" />
-                <br>
-                <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
-                <br>
-                <input type="password" name="password-confirm" class="form-control" placeholder="Confirmez le mot de passe" />
-                <br>
-                <button type="submit" name"submit" class="btn btn-primary">Inscire l'élève</button>
-
-            </form>
+<div class="container-fluid">
+    <?php if (!empty($errors)) : ?>
+        <div class="alert alert-danger">
+            <p>Remplissez le formulaire d'inscription correctement:</p>
+            <ul>
+                <?php foreach ($errors as $error) : ?>
+                    <li>
+                        <?= $error; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-    </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+    <?php endif; ?>
+    <div class="home-box">
+        <div class="home-title">Connection à l'environnement</div>
+        <hr>
+        <form method="POST" action="">
+            <input type="text" name="name" class="form-control" placeholder="Nom de famille"/>
+            <br>
+            <input type="text" name="firstname" class="form-control" placeholder="Prénom"/>
+            <br>
+            <input type="text" name="email" class="form-control" placeholder="Email"/>
+            <br>
+            <input type="password" name="password" class="form-control" placeholder="Mot de passe"/>
+            <br>
+            <input type="password" name="password-confirm" class="form-control"
+                   placeholder="Confirmez le mot de passe"/>
+            <br>
+            <button type="submit" name
+            "submit" class="btn btn-primary">Inscire l'élève</button>
 
+        </form>
     </div>
-    <!-- /#wrapper -->
+</div>
+</div>
+<!-- /#page-content-wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+<!-- Bootstrap core JavaScript -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
 </body>
 

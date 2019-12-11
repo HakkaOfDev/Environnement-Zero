@@ -14,7 +14,8 @@ $auth->reconnectFromCookie($db);
 
     <title>Environnement Zéro</title>
 
-    <meta name="description" content="Environnement Zéro @2k20" <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
+    <meta name="description" content="Environnement Zéro @2k20"
+    <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Environnement Zéro">
     <meta property="og:description" content="Environnement Zéro @2k20">
@@ -37,47 +38,47 @@ $auth->reconnectFromCookie($db);
 
 <body>
 
-    <?php include('assets/includes/header.php'); ?>
+<?php include('assets/includes/header.php'); ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-8"></div>
-            <div class="col-lg-4">
-                <div class="home-box">
-                    <div class="home-title">
-                        <p>Dernières nouveautés</p>
-                    </div>
-                    <hr>
-                    <?php foreach ($db->query('SELECT * FROM news ORDER BY id DESC')->fetchAll() as $new) : ?>
-                        <div class="home-box">
-                            <div class="home-title text-center">
-                                <p> <?= $new->news_title; ?> </p>
-                            </div>
-                            <hr>
-                            <p><?= $new->news_content; ?></p>
-                        </div>
-                    <?php endforeach; ?>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8"></div>
+        <div class="col-lg-4">
+            <div class="home-box">
+                <div class="home-title">
+                    <p>Dernières nouveautés</p>
                 </div>
+                <hr>
+                <?php foreach ($db->query('SELECT * FROM news ORDER BY id DESC')->fetchAll() as $new) : ?>
+                    <div class="home-box">
+                        <div class="home-title text-center">
+                            <p> <?= $new->news_title; ?> </p>
+                        </div>
+                        <hr>
+                        <p><?= $new->news_content; ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+</div>
+</div>
+<!-- /#page-content-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+</div>
+<!-- /#wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
 </body>
 

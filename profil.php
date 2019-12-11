@@ -36,7 +36,8 @@ if (!empty($_POST)) {
 
     <title>Paramètres de votre compte</title>
 
-    <meta name="description" content="Environnement Zéro @2k20" <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
+    <meta name="description" content="Environnement Zéro @2k20"
+    <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Environnement Zéro">
     <meta property="og:description" content="Environnement Zéro @2k20">
@@ -59,117 +60,120 @@ if (!empty($_POST)) {
 
 <body>
 
-    <?php include('assets/includes/header.php'); ?>
+<?php include('assets/includes/header.php'); ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="home-box">
-                    <div class="home-title">
-                        <p>Bienvenue dans l'Environnement Zérø</p>
-                    </div>
-                    <hr>
-                    <p>Je test des choses</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="home-box">
+                <div class="home-title">
+                    <p>Bienvenue dans l'Environnement Zérø</p>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <?php if (!empty($errors)) : ?>
-                    <div class="alert alert-danger">
-                        <p>Remplissez le formulaire d'inscription correctement:</p>
-                        <ul>
-                            <?php foreach ($errors as $error) : ?>
-                                <li>
-                                    <?= $error; ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
-                <div class="home-box">
-                    <div class="home-title">
-                        <p>Réinitialiser son mot de passe ?</p>
-                    </div>
-                    <hr>
-                    <form action="" method="POST">
-
-                        <div class="form-group">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-lock-open text-primary"></i></div>
-                                </div>
-                                <input type="password" name="password_actual" class="form-control" placeholder="Mot de passe actuel" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
-                                </div>
-                                <input type="password" name="password" class="form-control" placeholder="Nouveau mot de passe" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
-                                </div>
-                                <input type="password" name="password_confirm" class="form-control" placeholder="Confimer le mot de passe" />
-                            </div>
-                        </div>
-                        <br>
-                        <input type="submit" value="Réinitialiser" class="btn btn-primary btn-block rounded-0 py-2">
-                    </form>
-                </div>
+                <hr>
+                <p>Je test des choses</p>
             </div>
         </div>
-        <div class="row">
+        <div class="col-lg-4">
+            <?php if (!empty($errors)) : ?>
+                <div class="alert alert-danger">
+                    <p>Remplissez le formulaire d'inscription correctement:</p>
+                    <ul>
+                        <?php foreach ($errors as $error) : ?>
+                            <li>
+                                <?= $error; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            <div class="home-box">
+                <div class="home-title">
+                    <p>Réinitialiser son mot de passe ?</p>
+                </div>
+                <hr>
+                <form action="" method="POST">
 
-            <div class="col-lg-8"></div>
-
-            <div class="col-lg-4">
-                <div class="home-box">
-                    <div class="home-title">
-                        <p>Changer son avatar ?</p>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-lock-open text-primary"></i></div>
+                            </div>
+                            <input type="password" name="password_actual" class="form-control"
+                                   placeholder="Mot de passe actuel"/>
+                        </div>
                     </div>
-                    <hr>
-                    <div class="text-center">
-                        <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="img-thumbnail">
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
+                            </div>
+                            <input type="password" name="password" class="form-control"
+                                   placeholder="Nouveau mot de passe"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-lock text-primary"></i></div>
+                            </div>
+                            <input type="password" name="password_confirm" class="form-control"
+                                   placeholder="Confimer le mot de passe"/>
+                        </div>
                     </div>
                     <br>
-                    <form action="avatarchange.php" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-file-image"></i></div>
-                                </div>
-                                <input type="file" name="new_avatar" class="form-control"/>
-                            </div>
-                        </div>
-                        <br>
-                        <input type="submit" value="Mettre à jour" class="btn btn-primary btn-block rounded-0 py-2">
-                    </form>
-                </div>
+                    <input type="submit" value="Réinitialiser" class="btn btn-primary btn-block rounded-0 py-2">
+                </form>
             </div>
-
         </div>
     </div>
-    </div>
-    <!-- /#page-content-wrapper -->
+    <div class="row">
+
+        <div class="col-lg-8"></div>
+
+        <div class="col-lg-4">
+            <div class="home-box">
+                <div class="home-title">
+                    <p>Changer son avatar ?</p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="img-thumbnail">
+                </div>
+                <br>
+                <form action="avatarchange.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-file-image"></i></div>
+                            </div>
+                            <input type="file" name="new_avatar" class="form-control"/>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" value="Mettre à jour" class="btn btn-primary btn-block rounded-0 py-2">
+                </form>
+            </div>
+        </div>
 
     </div>
-    <!-- /#wrapper -->
+</div>
+</div>
+<!-- /#page-content-wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+<!-- Bootstrap core JavaScript -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 
 </body>
 
