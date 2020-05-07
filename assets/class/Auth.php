@@ -26,6 +26,33 @@ class Auth
     }
 
     /**
+     * This function return a Student.class from the database with his name.
+     *
+     * @param string $name
+     */
+    public function getUser($db, $name){
+        $query = $db->query('SELECT * FROM students WHERE name = ?', [$name]);
+        $targetUser = $query->fetch();
+        if($targetUser){
+            return $targetUser;
+        }
+        return null;
+    }
+
+    /**
+     * This function return a Student.class from the database with his id.
+     *
+     * @param int $id
+     */
+    public function getUserById($db, $id){
+        $query = $db->query('SELECT * FROM students WHERE id = ?', [$id]);
+        $student = $query->fetch();
+        if($student){
+            return $student;
+        }
+    }
+
+    /**
      * This function register the new student.
      *
      * @param $db
@@ -34,10 +61,11 @@ class Auth
      * @param $email
      * @param $password
      */
+
     public function register($db, $name, $firstname, $email, $password, $status, $grade)
     {
         $bpassword = password_hash($password, PASSWORD_BCRYPT);
-        $db->query('INSERT INTO students (email, password, name, firstname, avatar, status, grade) VALUES (?,?,?,?,?,?,?)', [$email, $bpassword, $name, $firstname, 'default.png', $status, $grade]);
+        $db->query('INSERT INTO students (email, password, name, firstname, avatar, status, grade) VALUES (?,?,?,?,?,?,?)', [$email, $bpassword, $name, $firstname, 'default.jpg', $status, $grade]);
     }
 
     /**

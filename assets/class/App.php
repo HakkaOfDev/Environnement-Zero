@@ -21,7 +21,7 @@ class App
     static function getDatabase()
     {
         if (!self::$db) {
-            self::$db = new Database('root', '', 'zero');
+            self::$db = new Database('root', '9qbmxafMGCExCKgEk4pJQ', 'envzero');
         }
         return self::$db;
     }
@@ -35,6 +35,17 @@ class App
     static function getAuth()
     {
         return new Auth(Session::getInstance());
+    }
+
+    /**
+    * Getter of PrivateMessage
+    *
+    * @return PrivateMessage
+    */
+
+    static function getPrivateMessage()
+    {
+        return new PrivateMessage();
     }
 
     /**

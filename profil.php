@@ -64,7 +64,6 @@ if (!empty($_POST)) {
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-1"></div>
         <div class="col-lg-7">
             <div class="home-box">
                 <div class="home-title">
@@ -95,9 +94,7 @@ if (!empty($_POST)) {
                     </table>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-3">
+            <hr>
             <?php if (!empty($errors)) : ?>
                 <div class="alert alert-danger">
                     <p>Remplissez le formulaire d'inscription correctement:</p>
@@ -149,12 +146,7 @@ if (!empty($_POST)) {
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
-
-        <div class="col-lg-9"></div>
-
-        <div class="col-lg-3">
+        <div class="col-lg-5">
             <div class="home-box">
                 <div class="home-title">
                     <p>Changer son avatar ?</p>
@@ -178,20 +170,14 @@ if (!empty($_POST)) {
                 </form>
             </div>
         </div>
-
     </div>
 </div>
-</div>
-<!-- /#page-content-wrapper -->
 
 </div>
-<!-- /#wrapper -->
 
-<!-- Bootstrap core JavaScript -->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Menu Toggle Script -->
 <script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();

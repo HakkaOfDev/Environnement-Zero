@@ -14,13 +14,13 @@ $auth->reconnectFromCookie($db);
 
     <title>Environnement Zéro</title>
 
-    <meta name="description" content="Environnement Zéro @2k20"
+    <meta name="description" content="Environnement Zéro @2k20">
     <meta name="keywords" content="Environnement Zéro, application, free discu, env zero, envi zéro">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Environnement Zéro">
     <meta property="og:description" content="Environnement Zéro @2k20">
     <meta property="og:url" content="">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="https://www.env-zero.eu/assets/img/favicon.png">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900" rel="stylesheet">
@@ -42,7 +42,15 @@ $auth->reconnectFromCookie($db);
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8"></div>
+        <div class="col-lg-8">
+            <div class="home-box">
+                <div class="home-title">
+                    <p>Bienvenue sur Environnement Zéro</p>
+                </div>
+                <hr>
+                <img src="assets/img/welcome.jpg" class="img-fluid img-thumbnail" width="100%" height="100%"/>
+            </div>
+        </div>
         <div class="col-lg-4">
             <div class="home-box">
                 <div class="home-title">
@@ -63,16 +71,12 @@ $auth->reconnectFromCookie($db);
     </div>
 </div>
 </div>
-<!-- /#page-content-wrapper -->
 
 </div>
-<!-- /#wrapper -->
 
-<!-- Bootstrap core JavaScript -->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Menu Toggle Script -->
 <script>
     $("#menu-toggle").click(function (e) {
         e.preventDefault();

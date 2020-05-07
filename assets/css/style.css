@@ -1,5 +1,7 @@
 body {
     overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
 }
 
 /* SideBar */
@@ -109,4 +111,32 @@ body {
 
 .table-student-information > tbody > tr > td {
     border-top: 0;
+}
+
+.wrap-sendbox {
+    border-radius: 30px;
+    width: 30%;
+    margin-bottom: 10px;
+    background-color: #343a40!important;
+    position: fixed;
+    display: block;
+    margin-top: 10px;
+    bottom: 0%;
+}
+
+.sendbox {
+    font-family: Oswald-Medium;
+    font-size: 16px;
+    color: lightgray;
+    line-height: 1.2;
+    display: block;
+    width: 30%;
+    height: 30px;
+    border-radius: 31px;
+    padding: 0 35px 0 35px;
+    outline: none;
+}
+
+.color-white {
+    color:white;
 }

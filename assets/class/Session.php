@@ -76,7 +76,7 @@ class Session
     }
 
     /**
-     * This funciton return a session value from a variable key.
+     * This function return a session value from a variable key.
      *
      * @param $key
      * @return mixed|null

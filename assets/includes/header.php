@@ -1,14 +1,14 @@
 <?php
-require_once('assets/includes/bootstrap.php');
-
+require_once('bootstrap.php');
+$db = App::getDatabase();
 $auth = App::getAuth();
 $student = $auth->getStudent();
+$dm = App::getPrivateMessage();
 ?>
 
 <div class="d-flex" id="wrapper">
-
     <div class="bg-dark border-right" id="sidebar-wrapper">
-        <a href="index.php">
+        <a href="#">
             <div class="sidebar-heading custom-brand">Environnement Zérø</div>
         </a>
         <div class="list-group list-group-flush">
@@ -16,35 +16,34 @@ $student = $auth->getStudent();
                 <div class="dropdown-divider"></div>
                 <a class="text-uppercase sidebar-separator-title text-muted align-items-center d-flex section-title">
                     <div class="p-2"></div>
-                    <small><i class="fas fa-search"></i> Discussions</small></a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title"><img
-                            src="assets/img/test-avatar.jpg" class="rounded-circle" height="30px" width="30px"> FREIRE
-                    Corentin</a>
+                    <small><i class="fas fa-search"></i> Discussions</small>
+                </a>
+
+                <?php foreach($db->query('SELECT * FROM students')->fetchAll() as $target):
+                    if($target->name !== $student->name):
+                        if($dm->hasPrivateMessage($db, $target->name, $student->name)): ?>
+                            <a href="fastmessage.php?target=<?= $target->id; ?>" class="list-group-item list-group-item-action bg-dark text-white section-title"><img
+                            src="students/avatars/<?= $target->avatar; ?>" class="rounded-circle" height="30px" width="30px"> <?= strtoupper($target->name); ?> <?= $target->firstname; ?></a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
                 <div class="dropdown-divider"></div>
                 <a href="#boxit" data-toggle="collapse" aria-expanded="false"
                    class="dropdown-toggle list-group-item list-group-item-action bg-dark text-white section-title">Box'it</a>
                 <div class="collapse" id="boxit">
-                    <a href="#"
+                    <a href="fastmessage.php?target=<?= $student->grade; ?>"
                        class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
                         <div class="p-3"></div>
-                        <small><i class="fas fa-angle-double-right"></i> TS1</small></a>
-                    <a href="#"
-                       class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
-                        <div class="p-3"></div>
-                        <small><i class="fas fa-angle-double-right"></i> TS2</small></a>
-                    <a href="#"
-                       class="sidebar-separator-title align-items-center text-white d-flex section-title p-2 section-subcontent">
-                        <div class="p-3"></div>
-                        <small><i class="fas fa-angle-double-right"></i> TES</small></a>
+                        <small><i class="fas fa-angle-double-right"></i> <?= $student->grade; ?></small>
+                    </a>
                 </div>
                 <div class="dropdown-divider"></div>
             <?php endif; ?>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white section-title">Support</a>
+            <a href="support.php" class="list-group-item list-group-item-action bg-dark text-white section-title">Support</a>
         </div>
     </div>
 
     <div id="page-content-wrapper">
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
             <button class="btn btn-primary" id="menu-toggle"><i class="fa fa-bars"></i></button>
 
@@ -56,13 +55,12 @@ $student = $auth->getStudent();
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <?php if ($student != false) : ?>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="rounded-circle"
+                                <img src="students/avatars/<?= $student->avatar; ?>" class="rounded-circle"
                                      height="30px" width="30px">
-                                <large class="text-uppercase">  <?= $student->name; ?></large> <?= $student->firstname; ?>
+                                <large class="text-uppercase" id ="pseudo">  <?= $student->name; ?></large> <?= $student->firstname; ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="profil.php">Paramètres</a>
@@ -70,27 +68,25 @@ $student = $auth->getStudent();
                                 <a class="dropdown-item" href="logout.php">Déconnexion</a>
                             </div>
                         </li>
-
+                        <li class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-address-book color-white" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <?php 
+                                foreach ($db->query('SELECT * FROM students')->fetchAll() as $target) :
+                                    if($target->name !== $student->name): ?>
+                                        <a class="dropdown-item" href="fastmessage.php?target=<?= $target->id; ?>"><img src="students/avatars/<?= $target->avatar; ?>" class="rounded-circle"
+                                         height="20px" width="20px"> <?= strtoupper($target->name).' '.$target->firstname; ?> <i class="fa fa-comment" aria-hidden="true"></i></a>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </li>
                     <?php else : ?>
-
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">Se connecter</a>
                         </li>
-
                     <?php endif; ?>
-                    <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Dropdown
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        -->
                 </ul>
             </div>
         </nav>
