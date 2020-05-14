@@ -153,7 +153,7 @@ if (!empty($_POST)) {
                 </div>
                 <hr>
                 <div class="text-center">
-                    <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="img-thumbnail">
+                    <img src="students/avatars/<?= $auth->getStudent()->avatar; ?>" class="img-thumbnail" width="75%", height="50%">
                 </div>
                 <br>
                 <form action="avatarchange.php" method="POST" enctype="multipart/form-data">

@@ -1,7 +1,5 @@
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
-    width: 100%;
 }
 
 /* SideBar */
@@ -139,4 +137,116 @@ body {
 
 .color-white {
     color:white;
+}
+
+.fastmessagebg {
+    background: url('../img/fastmessagebg.jpg') no-repeat center !important;
+    background-size: cover !important;
+    height: 90%;
+}
+
+.author {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-decoration: blink;
+}
+
+.date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+
+}
+
+.content {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+}
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    width: 100%;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    width: 95%;
+    background: none;
+    line-height: 40px;
+    padding: 0 10px;
+    caret-color:#007bff;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: #007bff;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+}
+
+/* Css page support */
+
+.support-title{
+     font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: black;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+   font-family: 'Oswald', sans-serif;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+    font-family: 'Oswald', sans-serif;
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+    text-align: center;
+}
+
+.accordion:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  content: "\f107";
+  font-size: 16px;
+  color: #444;
+  float: right;
+  margin-left: 5px;
+
+}
+
+.active:after {
+  content: '';
 }

@@ -30,15 +30,16 @@ $auth->reconnectFromCookie($db);
 
     <meta name="author" content="Hakka,Ptit Nost">
 
-    <link href="https://www.env-zero.eu/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="https://www.env-zero.eu/assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/support.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<?php include('https://www.env-zero.eu/assets/includes/header.php'); ?>
+<?php include('assets/includes/header.php'); ?>
 
 <div class="container-fluid">
     <div class="home-box">
@@ -47,23 +48,23 @@ $auth->reconnectFromCookie($db);
             <hr>
         </div>
         <div>
-            <button class="accordion"> 1er Question </button>
-            <div class="panel"> <p> BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p> </div>
+            <button class="accordion"> Qu'est-ce que l'Environnement Zéro ? </button>
+            <div class="panel"> <p> C'est tout bonnement la meilleure question non ? </p><p>C'est l'environnement de travail parfait, il assemble discussions privées, par classe et propose un cloud pour des sauvegardes de fichiers !</p> </div>
         </div>
         <br>
         <div>
-            <button class="accordion"> 2er Question</button>
-            <div class="panel"> <p>Lorem ipsum 20</p> </div>
+            <button class="accordion"> Les Box'it ? </button>
+            <div class="panel"> <p> Ce sont les discussions par classe, dedans vous y trouverez votre classe et des discussions autres telles que maths ou physique..</p> </div>
         </div>
         <br>
         <div>
-            <button class="accordion"> 3er Question</button>
-            <div class="panel"> <p>Lorem ipsum 20</p> </div>
+            <button class="accordion"> Comment avoir un accès ? </button>
+            <div class="panel"> <p> Il suffit de faire partie intégrante d'un établissement. Et postulez sa demande à l'adresse suivante : contact@env-zero.fr</p> </div>
         </div>
         <br>
         <div>
-            <button class="accordion"> 4er Question</button>
-            <div class="panel"> <p>Lorem ipsum 20</p> </div>
+            <button class="accordion"> Un futur ? </button>
+            <div class="panel"> <p> Nous souhaitons créer une rubrique avec des exercices hebdomadaire !</p> </div>
         </div>
     </div>
 </div>
@@ -94,8 +95,8 @@ for (i = 0; i < acc.length; i++) {
 <!-- /#wrapper -->
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://www.env-zero.eu/assets/vendor/jquery/jquery.min.js"></script>
-<script src="https://www.env-zero.eu/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Menu Toggle Script -->
 <script>

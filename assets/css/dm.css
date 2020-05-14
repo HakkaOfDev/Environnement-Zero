@@ -8,6 +8,8 @@ textarea{
     margin: 50px auto;
     border-radius: 6px;
     border: 0;
+    position: relative;
+    bottom: 0;
 }
 
 .target-border {
@@ -57,9 +59,12 @@ textarea{
     color: #6c757d;
 }
 
+.chat {
+    height: 100%;
+    display: block;
+}
+
 #messages {
-    height: 80%;
-    padding: 10px;
     overflow-y: scroll;
 }
 
