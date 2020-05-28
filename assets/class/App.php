@@ -21,7 +21,7 @@ class App
     static function getDatabase()
     {
         if (!self::$db) {
-            self::$db = new Database('root', '9qbmxafMGCExCKgEk4pJQ', 'envzero');
+            self::$db = new Database('', '', '');
         }
         return self::$db;
     }
